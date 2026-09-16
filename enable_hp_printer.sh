@@ -18,21 +18,19 @@ echo "0x00" > bDeviceProtocol
 
 # 3. Apply device strings
 mkdir -p strings/0x409
-echo "PH12345678" > strings/0x409/serialnumber
 echo "HP" > strings/0x409/manufacturer
 echo "HP LaserJet Pro 4001dn" > strings/0x409/product
+echo "PH12345678" > strings/0x409/serialnumber
 
-# 4. Initialize printer framework & write descriptors (Using absolute path)
+# 4. Create paths and bind configuration FIRST
 mkdir -p functions/printer.usb0
-echo "MFG:HP;MDL:LaserJet Pro 4001dn;CLS:PRINTER;DES:HP LaserJet Pro 4001dn;" | sudo tee /sys/kernel/config/usb_gadget/hp_4001dn/functions/printer.usb0/1284ID > /dev/null
-
-
-# 5. Bind configurations SECOND
 mkdir -p configs/c.1/strings/0x409
 echo "Standard USB Printing" > configs/c.1/strings/0x409/configuration
 ln -s functions/printer.usb0 configs/c.1/
 
+# 5. Write the 1284ID descriptor NOW that the function is bound
+echo "MFG:HP;MDL:LaserJet Pro 4001dn;CLS:PRINTER;DES:HP LaserJet Pro 4001dn;" > functions/printer.usb0/1284ID
+
 # 6. Enable gadget over UDC
 ls /sys/class/udc > UDC
 echo "[+] HP LaserJet Pro 4001dn Gadget Loaded!"
-
