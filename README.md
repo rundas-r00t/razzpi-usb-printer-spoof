@@ -2,7 +2,7 @@
 
 step 1 
 
-set up your razzpi with proper wifi creds
+set up your razzpi with proper wifi & ssh creds
 
 step 2
 
