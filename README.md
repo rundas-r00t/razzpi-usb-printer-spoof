@@ -6,7 +6,7 @@ set up your razzpi with proper wifi & ssh creds
 
 step 2
 
-ssh into the razz and copy/paste the two scripts via nano and save and chmod +x both. be sure to `mkdir captured_jobs` as output will live there.
+ssh into the razz and copy/paste the two scripts via nano and save and chmod +x both. be sure to `mkdir captured_jobs` as output will live there. copy the hp-gadget.service file to `/etc/systemd/system` and then `sudo systemctl daemon-reload` to have the bash script run at start-up.
 
 you will likely need to take your attack laptop and plug it into the printer you want to spoof and use `lsusb` to grab the proper manufacturer name and ID. update the enable_hp_printer.sh script accordingly. 
 
