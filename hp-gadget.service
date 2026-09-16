@@ -1,0 +1,13 @@
+[Unit]
+Description=HP Printer USB Gadget Spoof
+After=systemd-modules-load.service
+Wants=systemd-modules-load.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/home/user/enable_hp_printer.sh
+ExecStop=/bin/bash -c 'echo "" > /sys/kernel/config/usb_gadget/hp_4001dn/UDC'
+
+[Install]
+WantedBy=multi-user.target
