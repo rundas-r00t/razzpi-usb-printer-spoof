@@ -6,7 +6,7 @@ set up your razzpi with proper wifi & ssh creds
 
 step 2
 
-ssh into the razz and copy/paste the two scripts via nano and save and chmod +x both. you will likely need to take your attack laptop and plug it into the printer you want to spoof and use `lsusb` to grab the proper manufacturer name and ID. update the enable...sh script accordingly
+ssh into the razz and copy/paste the two scripts via nano and save and chmod +x both. you will likely need to take your attack laptop and plug it into the printer you want to spoof and use `lsusb` to grab the proper manufacturer name and ID. update the enable_hp_printer.sh script accordingly
 
 step 3
 
