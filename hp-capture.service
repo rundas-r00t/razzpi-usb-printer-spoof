@@ -1,0 +1,18 @@
+[Unit]
+Description=HP Printer Job Capture and PDF Conversion
+After=hp-gadget.service
+Requires=hp-gadget.service
+
+[Service]
+Type=simple
+User=root
+ExecStart=/home/user/capture_jobs.sh
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+KillSignal=SIGKILL
+TimeoutStopSec=5
+
+[Install]
+WantedBy=multi-user.target
