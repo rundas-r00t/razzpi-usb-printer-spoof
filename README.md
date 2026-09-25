@@ -16,8 +16,13 @@ plug the razzpi into the victim laptop/print server & ensure it turns on properl
 
 step 4 
 
-ssh into the razzPi again and `python3 sniffer_injector.py`
+~~ssh into the razzPi again and `python3 sniffer_injector.py`~~ this is still a work in progress
 
-print jobs will go to the pi & the pi ~~should try to pop a shell (work in progress on this currently)~~ will capture all the print jobs and save the data to `/captured_jobs` for later retrieval & inspection
+print jobs will go to the pi and be saved in the  `/captured_jobs/` folder. then, the Pi will automatically convert the *.prn files to .pdf's and save them to the `/captured_pdfs/` folder for later retrieval & inspection via `scp`.
+
+
+
+
+
 
 > note: apparently it is not possible to pop a shell via printer USB spoofing, as this type of code execution was mitigated in 2021. you'd have to have a vulnerable driver in place on the victim PC/print server in order to have success with that type of attack.
