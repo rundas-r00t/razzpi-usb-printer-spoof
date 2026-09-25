@@ -18,8 +18,6 @@ fi
 
 mkdir -p "$GADGET" && cd "$GADGET"
 
-#make sure that your lsusb output matches what's in sections 2,3 and 4
-
 # 2. USB identifiers
 echo "0x03f0" > idVendor
 echo "0x0274" > idProduct
